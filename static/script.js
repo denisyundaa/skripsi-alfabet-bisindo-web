@@ -97,7 +97,7 @@ async function setupCamera() {
         videoElement.style.borderRadius = '12px';
         videoElement.style.objectFit = 'cover';
 
-        setInterval(sendFrame, 100);
+        setInterval(sendFrame, 250);
         updateUI(); // Inisialisasi UI pertama kali (Huruf A)
         
     } catch (error) {
