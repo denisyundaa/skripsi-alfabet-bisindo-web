@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praktik Alfabet - Deaf Community</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- navbar -->
+    <header class="navbar">
+        <div class="logo-container">
+            <h2 class="logo-title">Deaf Community</h2>
+            <span class="logo-subtitle">GSKI Rehobot Kelapa Gading</span>
+        </div>
+        <nav class="nav-links">
+            <a href="{{ url_for('beranda') }}">Beranda</a>
+            <a href="{{ url_for('panduan') }}">Baca Panduan</a>
+            <a href="{{ url_for('praktik') }}" class="active">Praktik Alfabet</a>
+        </nav>
+    </header>
+
+    <!-- main praktik -->
+    <main class="praktik-section">
+        <h1 class="praktik-title">Praktik Alfabet BISINDO</h1>
+        
+        <div class="praktik-container">
+            <div class="grid-abjad">
+                <div class="abjad-btn active">A</div>
+                <div class="abjad-btn">B</div>
+                <div class="abjad-btn">C</div>
+                <div class="abjad-btn">D</div>
+                <div class="abjad-btn">E</div>
+                <div class="abjad-btn">F</div>
+                <div class="abjad-btn">G</div>
+                <div class="abjad-btn">H</div>
+                <div class="abjad-btn">I</div>
+                <div class="abjad-btn">J</div>
+                <div class="abjad-btn">K</div>
+                <div class="abjad-btn">L</div>
+                <div class="abjad-btn">M</div>
+                <div class="abjad-btn">N</div>
+                <div class="abjad-btn">O</div>
+                <div class="abjad-btn">P</div>
+                <div class="abjad-btn">Q</div>
+                <div class="abjad-btn">R</div>
+                <div class="abjad-btn">S</div>
+                <div class="abjad-btn">T</div>
+                <div class="abjad-btn">U</div>
+                <div class="abjad-btn">V</div>
+                <div class="abjad-btn">W</div>
+                <div class="abjad-btn">X</div>
+                <div class="abjad-btn">Y</div>
+                <div class="abjad-btn">Z</div>
+            </div>
+
+            <!-- preview kamera -->
+            <div class="kamera-container">
+                <div class="kamera-feed">
+                    <p class="kamera-placeholder">Memuat Kamera...</p>
+                </div>
+                <div class="hasil-deteksi">
+                    Terdeteksi: <span id="huruf-terdeteksi">A</span>
+                </div>
+            </div>
+
+            <!-- validasi -->
+            <div class="panel-kanan">
+                <div class="target-container">
+                    <div class="target-huruf">A</div>
+                    <img src="{{ url_for('static', filename='aset-gambar/signs/A.png') }}" alt="Gestur A" class="gambar-referensi">
+                </div>
+                
+                <div class="validasi-container">
+                    <img src="{{ url_for('static', filename='aset-gambar/centang.png') }}" alt="Benar" class="ikon-centang">
+                    <p class="teks-validasi">Praktik Benar</p>
+                </div>
+
+                <div class="aksi-container">
+                    <button class="btn-sekunder">Reset Huruf Saat Ini</button>
+                    <button class="btn-utama-kecil">Huruf Selanjutnya</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- footer -->
+    <footer class="footer">
+        <p>&copy;Deaf Community 2026</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panduan Penggunaan - Deaf Community</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- navbar -->
+    <header class="navbar">
+        <div class="logo-container">
+            <h2 class="logo-title">Deaf Community</h2>
+            <span class="logo-subtitle">GSKI Rehobot Kelapa Gading</span>
+        </div>
+        <nav class="nav-links">
+            <a href="{{ url_for('beranda') }}">Beranda</a>
+            <a href="{{ url_for('panduan') }}" class="active">Baca Panduan</a>
+            <a href="{{ url_for('praktik') }}">Praktik Alfabet</a>
+        </nav>
+    </header>
+
+    <!-- main panduan -->
+    <main class="panduan-section">
+        <h1 class="panduan-title">Panduan Penggunaan Web</h1>
+        
+        <div class="panduan-grid">
+            <!-- panduan 1 -->
+            <div class="panduan-item">
+                <span class="angka">1</span>
+                <img src="{{ url_for('static', filename='aset-gambar/panduan-1.png') }}" alt="Izin Kamera" class="panduan-img">
+                <p>Setelah klik <strong>"Mulai Belajar"</strong>, pengguna akan diminta untuk <strong>menyalakan izin akses kamera</strong>.</p>
+            </div>
+            
+            <!-- panduan 2 -->
+            <div class="panduan-item">
+                <span class="angka">2</span>
+                <img src="{{ url_for('static', filename='aset-gambar/panduan-2.png') }}" class="panduan-img">
+                <p>Setelah kamera menyala, sistem akan menampilkan <strong>tangkapan kamera beserta huruf</strong> yang harus dipraktikkan.</p>
+            </div>
+            
+            <!-- panduan 3 -->
+            <div class="panduan-item">
+                <span class="angka">3</span>
+                <img src="{{ url_for('static', filename='aset-gambar/panduan-3.png') }}" alt="Memperagakan Huruf" class="panduan-img">
+                <p>Pengguna <strong>memperagakan huruf</strong> hingga sistem memvalidasinya dan memunculkan tombol <strong>"Huruf Selanjutnya"</strong>.</p>
+            </div>
+            
+            <!-- panduan 4 -->
+            <div class="panduan-item">
+                <span class="angka">4</span>
+                <img src="{{ url_for('static', filename='aset-gambar/panduan-4.png') }}" alt="Lanjut atau Ulangi" class="panduan-img">
+                <p>Pilih <strong>"Huruf Selanjutnya"</strong> untuk maju. Jika ingin memperbaiki gerakan, pilih <strong>"Ulangi Huruf Saat Ini"</strong> untuk mengulang.</p>
+            </div>
+            
+            <!-- panduan 5 -->
+            <div class="panduan-item">
+                <span class="angka">5</span>
+                <img src="{{ url_for('static', filename='aset-gambar/panduan-5.png') }}" alt="Selesai Belajar" class="panduan-img">
+                <p>Jika pengguna berhasil menyelesaikan praktik hingga <strong>huruf Z</strong>, maka akan muncul indikator tombol <strong>"Selesai Belajar"</strong>.</p>
+            </div>
+            
+            <!-- panduan 6 -->
+            <div class="panduan-item">
+                <span class="angka">6</span>
+                <img src="{{ url_for('static', filename='aset-gambar/panduan-6.png') }}" alt="Navigasi Akhir" class="panduan-img">
+                <p>Di halaman akhir, gunakan <strong>"Kembali ke Beranda"</strong> untuk keluar, atau <strong>"Reset Progres"</strong> untuk mengulang dari awal.</p>
+            </div>
+        </div>
+
+        <div class="panduan-action">
+            <p>Jika sudah paham, silakan klik tombol "Mulai Belajar"</p>
+            <a href="{{ url_for('praktik') }}" class="btn-utama">Mulai Belajar</a>
+        </div>
+    </main>
+
+    <!-- footer -->
+    <footer class="footer">
+        <p>&copy;Deaf Community 2026</p>
+    </footer>
+
+</body>
+</html>

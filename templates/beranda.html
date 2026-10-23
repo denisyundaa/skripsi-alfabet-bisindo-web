@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Alfabet BISINDO bersama Deaf Community</title>
+    
+    <!-- import fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- navbar -->
+    <header class="navbar">
+        <div class="logo-container">
+            <h2 class="logo-title">Deaf Community</h2>
+            <span class="logo-subtitle">GSKI Rehobot Kelapa Gading</span>
+        </div>
+        <nav class="nav-links">
+            <a href="{{ url_for('beranda') }}" class="active">Beranda</a>
+            <a href="{{ url_for('panduan') }}">Baca Panduan</a>
+            <a href="{{ url_for('praktik') }}">Praktik Alfabet</a>
+        </nav>
+    </header>
+
+    <!-- main -->
+    <main class="main-section">
+        <h1 class="main-title">Selamat Datang</h1>
+        <p class="main-description">
+            Ini adalah web pembelajaran alfabet BISINDO by Deaf Community.<br>
+            Sebelum memulai praktik pembelajaran, silakan untuk baca panduan terlebih dahulu.
+        </p>
+        <a href="{{ url_for('panduan') }}" class="btn-utama">Baca Panduan</a>
+    </main>
+
+    <!-- footer -->
+    <footer class="footer">
+        <p>&copy;Deaf Community 2026</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selesai Belajar - Deaf Community</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- navbar -->
+    <header class="navbar">
+        <div class="logo-container">
+            <h2 class="logo-title">Deaf Community</h2>
+            <span class="logo-subtitle">GSKI Rehobot Kelapa Gading</span>
+        </div>
+        <nav class="nav-links">
+            <a href="{{ url_for('beranda') }}">Beranda</a>
+            <a href="{{ url_for('panduan') }}">Baca Panduan</a>
+            <a href="{{ url_for('praktik') }}">Praktik Alfabet</a>
+        </nav>
+    </header>
+
+    <!-- main selesai -->
+    <main class="selesai-section">
+        <img src="{{ url_for('static', filename='aset-gambar/piala.png') }}" alt="Piala Keberhasilan" class="piala-img">
+        <h1 class="selesai-title">Selamat!</h1>
+        <p class="selesai-description">
+            Anda berhasil menyelesaikan praktik alfabet BISINDO bersama Deaf Community
+        </p>
+        
+        <div class="selesai-action">
+            <a href="{{ url_for('praktik') }}" onclick="localStorage.removeItem('progres_bisindo');" class="btn-sekunder">Reset Progres Belajar</a>
+            <a href="{{ url_for('beranda') }}" class="btn-utama">Kembali ke Beranda</a>
+        </div>
+    </main>
+
+    <!-- footer -->
+    <footer class="footer">
+        <p>&copy;Deaf Community 2026</p>
+    </footer>
+
+</body>
+</html>
