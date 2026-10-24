@@ -13,13 +13,13 @@ body {
     min-height: 100vh; 
 }
 
-
+/*navbar*/
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 25px 60px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* Garis batas bawah transparan */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .logo-container {
@@ -63,7 +63,7 @@ body {
     border-bottom: 2px solid #ffffff;
 }
 
-/*main beranda*/
+/*beranda*/
 .main-section {
     flex: 1; 
     display: flex;
@@ -108,7 +108,6 @@ body {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
-
 /*baca panduan*/
 .panduan-section {
     flex: 1;
@@ -125,13 +124,13 @@ body {
     letter-spacing: 0.5px;
 }
 
-
 .panduan-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     gap: 30px;
     max-width: 1100px;
     margin-bottom: 50px;
+    width: 100%;
 }
 
 .panduan-item {
@@ -190,7 +189,7 @@ body {
     color: #e2e8f0;
 }
 
-/* praktik alfabet*/
+/*praktik alfabet (tampilan komputer)*/
 .praktik-section {
     flex: 1;
     display: flex;
@@ -206,19 +205,25 @@ body {
 }
 
 .praktik-container {
-    display: flex;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "huruf huruf"
+        "kamera panel";
+    gap: 40px;
     width: 100%;
-    max-width: 1200px;
-    justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-
+/* grid huruf */
 .grid-abjad {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-area: huruf;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 10px;
-    align-content: start;
+    margin-bottom: 10px;
 }
 
 .abjad-btn {
@@ -244,24 +249,35 @@ body {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-
+/* KAMERA PORTRAIT */
 .kamera-container {
-    flex: 1;
+    grid-area: kamera;
+    justify-self: end; 
+    width: 100%;
+    max-width: 320px; 
     display: flex;
     flex-direction: column;
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
     overflow: hidden;
     background-color: #0f172a;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
 }
 
 .kamera-feed {
-    flex: 1;
-    min-height: 400px;
+    width: 100%;
+    aspect-ratio: 3 / 4; 
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
+    background-color: #0f0f1a;
+}
+
+.kamera-feed video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; 
 }
 
 .kamera-placeholder {
@@ -273,6 +289,7 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 15px 20px;
     font-size: 1.1rem;
+    text-align: center;
     font-weight: 400;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -282,21 +299,24 @@ body {
     color: #93c5fd;
 }
 
-
+/* PANEL KANAN (GAMBAR & TOMBOL) */
 .panel-kanan {
+    grid-area: panel;
+    justify-self: start;
     display: flex;
     flex-direction: column;
     gap: 25px;
-    width: 300px;
+    width: 100%;
 }
 
 .target-container {
     display: flex;
     gap: 15px;
+    flex-wrap: wrap; 
 }
 
 .target-huruf {
-    width: 200px;
+    width: 180px;
     height: 160px;
     background-color: rgba(255, 255, 255, 0.1);
     border: 2px solid rgba(255, 255, 255, 0.2);
@@ -309,7 +329,7 @@ body {
 }
 
 .gambar-referensi {
-    width: 200px;
+    width: 180px;
     height: 160px;
     object-fit: cover;
     border-radius: 12px;
@@ -320,13 +340,13 @@ body {
 .validasi-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 10px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .ikon-centang {
-    width: 80px;
+    width: 60px;
     height: auto;
 }
 
@@ -343,7 +363,8 @@ body {
 .aksi-container {
     display: flex;
     gap: 10px;
-    margin-top: auto;
+    width: 100%;
+    max-width: 375px; 
 }
 
 .btn-sekunder {
@@ -351,7 +372,7 @@ body {
     background-color: transparent;
     color: #ffffff;
     border: 1px solid #ffffff;
-    padding: 10px;
+    padding: 12px;
     border-radius: 8px;
     font-weight: 600;
     cursor: pointer;
@@ -367,7 +388,7 @@ body {
     background-color: #ffffff;
     color: #182551;
     border: none;
-    padding: 10px;
+    padding: 12px;
     border-radius: 8px;
     font-weight: 700;
     cursor: pointer;
@@ -378,9 +399,7 @@ body {
     background-color: #e2e8f0;
 }
 
-/* =========================================
-   HALAMAN SELESAI BELAJAR
-========================================= */
+/* selesai belajar */
 .selesai-section {
     flex: 1;
     display: flex;
@@ -392,10 +411,10 @@ body {
 }
 
 .piala-img {
-    width: 180px; /* Ukuran piala besar */
+    width: 180px; 
     height: auto;
     margin-bottom: 30px;
-    filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.4)); /* Memberikan efek bayangan pada piala */
+    filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.4)); 
 }
 
 .selesai-teks {
@@ -410,9 +429,10 @@ body {
 .selesai-action {
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-/* Modifikasi tombol sekunder khusus untuk link (tegak lurus dengan tombol utama) */
 .btn-sekunder-link {
     background-color: transparent;
     color: #ffffff;
@@ -439,4 +459,94 @@ body {
     font-size: 0.9rem;
     color: #94a3b8;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/*media req tampilan mobile */
+@media screen and (max-width: 768px) {
+    /* Navbar HP */
+    .navbar {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    /* tampilan beranda sm bacapanduan di hp */
+    .main-title {
+        font-size: 2.5rem;
+    }
+    
+    .panduan-section {
+        padding: 20px;
+    }
+
+    .panduan-title {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    /* praktik alfabet di hp */
+    .praktik-section {
+        padding: 20px 15px;
+    }
+
+    .praktik-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+
+    /* grid huruf di hp*/
+    .grid-abjad {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        width: 100%;
+        padding-bottom: 10px;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .abjad-btn {
+        flex: 0 0 auto; 
+    }
+
+    .panel-kanan {
+        align-items: center;
+    }
+
+    .target-container {
+        justify-content: center;
+    }
+
+    .validasi-container {
+        align-items: center;
+    }
+
+    .aksi-container {
+        flex-direction: column;
+        max-width: 100%;
+    }
+
+    /*selesai belajar tampilan hp*/
+    .selesai-section {
+        padding: 30px 20px;
+    }
+
+    .selesai-action {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .selesai-action .btn-utama,
+    .selesai-action .btn-sekunder-link {
+        width: 100%;
+    }
 }
