@@ -13,7 +13,7 @@ body {
     min-height: 100vh; 
 }
 
-/*navbar*/
+/* navbar */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -63,7 +63,7 @@ body {
     border-bottom: 2px solid #ffffff;
 }
 
-/*beranda*/
+/* beranda */
 .main-section {
     flex: 1; 
     display: flex;
@@ -108,7 +108,7 @@ body {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
-/*baca panduan*/
+/* baca panduan */
 .panduan-section {
     flex: 1;
     display: flex;
@@ -126,11 +126,10 @@ body {
 
 .panduan-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    grid-template-columns: repeat(3, 1fr); 
     gap: 30px;
     max-width: 1100px;
     margin-bottom: 50px;
-    width: 100%;
 }
 
 .panduan-item {
@@ -189,7 +188,7 @@ body {
     color: #e2e8f0;
 }
 
-/*praktik alfabet (tampilan komputer)*/
+/* praktik alfabet */
 .praktik-section {
     flex: 1;
     display: flex;
@@ -205,25 +204,18 @@ body {
 }
 
 .praktik-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-        "huruf huruf"
-        "kamera panel";
-    gap: 40px;
+    display: flex;
+    gap: 30px;
     width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
+    max-width: 1200px;
+    justify-content: space-between;
 }
 
-/* grid huruf */
 .grid-abjad {
-    grid-area: huruf;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 10px;
-    margin-bottom: 10px;
+    align-content: start;
 }
 
 .abjad-btn {
@@ -249,35 +241,23 @@ body {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-/* KAMERA PORTRAIT */
 .kamera-container {
-    grid-area: kamera;
-    justify-self: end; 
-    width: 100%;
-    max-width: 320px; 
+    flex: 1;
     display: flex;
     flex-direction: column;
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
     overflow: hidden;
     background-color: #0f172a;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
 }
 
 .kamera-feed {
-    width: 100%;
-    aspect-ratio: 3 / 4; 
-    position: relative;
+    flex: 1;
+    min-height: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #0f0f1a;
-}
-
-.kamera-feed video {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important; 
+    position: relative;
 }
 
 .kamera-placeholder {
@@ -289,8 +269,8 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 15px 20px;
     font-size: 1.1rem;
-    text-align: center;
     font-weight: 400;
+    text-align: center;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -299,24 +279,20 @@ body {
     color: #93c5fd;
 }
 
-/* PANEL KANAN (GAMBAR & TOMBOL) */
 .panel-kanan {
-    grid-area: panel;
-    justify-self: start;
     display: flex;
     flex-direction: column;
     gap: 25px;
-    width: 100%;
+    width: 300px;
 }
 
 .target-container {
     display: flex;
     gap: 15px;
-    flex-wrap: wrap; 
 }
 
 .target-huruf {
-    width: 180px;
+    width: 200px;
     height: 160px;
     background-color: rgba(255, 255, 255, 0.1);
     border: 2px solid rgba(255, 255, 255, 0.2);
@@ -329,7 +305,7 @@ body {
 }
 
 .gambar-referensi {
-    width: 180px;
+    width: 200px;
     height: 160px;
     object-fit: cover;
     border-radius: 12px;
@@ -340,13 +316,13 @@ body {
 .validasi-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 10px;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .ikon-centang {
-    width: 60px;
+    width: 80px;
     height: auto;
 }
 
@@ -363,8 +339,7 @@ body {
 .aksi-container {
     display: flex;
     gap: 10px;
-    width: 100%;
-    max-width: 375px; 
+    margin-top: auto;
 }
 
 .btn-sekunder {
@@ -372,7 +347,7 @@ body {
     background-color: transparent;
     color: #ffffff;
     border: 1px solid #ffffff;
-    padding: 12px;
+    padding: 10px;
     border-radius: 8px;
     font-weight: 600;
     cursor: pointer;
@@ -388,7 +363,7 @@ body {
     background-color: #ffffff;
     color: #182551;
     border: none;
-    padding: 12px;
+    padding: 10px;
     border-radius: 8px;
     font-weight: 700;
     cursor: pointer;
@@ -429,8 +404,6 @@ body {
 .selesai-action {
     display: flex;
     gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
 }
 
 .btn-sekunder-link {
@@ -461,92 +434,88 @@ body {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/*media req tampilan mobile */
-@media screen and (max-width: 768px) {
-    /* Navbar HP */
+/* media req mobile responsif */
+@media screen and (max-width: 850px) {
     .navbar {
-        flex-direction: column;
-        padding: 15px;
-        gap: 15px;
+        flex-direction: column !important;
+        padding: 20px 15px !important;
+        gap: 15px !important;
         text-align: center;
     }
-    
+    .logo-container {
+        align-items: center !important;
+    }
     .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
-
-    /* tampilan beranda sm bacapanduan di hp */
-    .main-title {
-        font-size: 2.5rem;
-    }
-    
-    .panduan-section {
-        padding: 20px;
-    }
-
-    .panduan-title {
-        font-size: 1.8rem;
-        text-align: center;
-    }
-
-    /* praktik alfabet di hp */
-    .praktik-section {
-        padding: 20px 15px;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 15px !important;
     }
 
     .praktik-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 25px;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 20px !important;
+        padding: 0 15px !important;
     }
 
-    /* grid huruf di hp*/
+    /* grid huruf di hp */
     .grid-abjad {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        width: 100%;
-        padding-bottom: 10px;
-        justify-content: flex-start;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        width: 100% !important; 
+        max-width: 100vw !important;
+        padding-bottom: 10px !important;
+        justify-content: flex-start !important;
         -webkit-overflow-scrolling: touch;
     }
-
     .abjad-btn {
-        flex: 0 0 auto; 
+        flex: 0 0 50px !important; 
+        height: 50px !important;
+    }
+
+    .kamera-container {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    .kamera-feed {
+        min-height: 250px !important;
     }
 
     .panel-kanan {
-        align-items: center;
+        width: 100% !important;
+        align-items: center !important;
     }
-
+    
     .target-container {
-        justify-content: center;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        width: 100% !important;
     }
-
-    .validasi-container {
-        align-items: center;
+    .target-huruf, .gambar-referensi {
+        width: 140px !important;
+        height: 120px !important;
+        font-size: 3rem !important;
     }
 
     .aksi-container {
-        flex-direction: column;
-        max-width: 100%;
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+    .btn-sekunder, .btn-utama-kecil {
+        width: 100% !important;
     }
 
-    /*selesai belajar tampilan hp*/
-    .selesai-section {
-        padding: 30px 20px;
-    }
-
-    .selesai-action {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .selesai-action .btn-utama,
-    .selesai-action .btn-sekunder-link {
-        width: 100%;
-    }
+    .main-title { font-size: 2.2rem !important; }
+    .main-description { font-size: 1rem !important; padding: 0 10px !important; }
+    .panduan-title { font-size: 1.8rem !important; text-align: center; }
+    .panduan-section { padding: 20px 15px !important; }
+    .panduan-grid { grid-template-columns: 1fr !important; }
+    .selesai-section { padding: 30px 15px !important; }
+    .selesai-action { flex-direction: column !important; width: 100% !important; }
+    .selesai-action .btn-utama, .selesai-action .btn-sekunder-link { width: 100% !important; }
 }
