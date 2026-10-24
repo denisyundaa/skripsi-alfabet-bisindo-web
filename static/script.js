@@ -97,7 +97,7 @@ async function setupCamera() {
         videoElement.style.borderRadius = '12px';
         videoElement.style.objectFit = 'cover';
 
-        setInterval(sendFrame, 250);
+        setTimeout(sendFrame, 1000);
         updateUI(); // Inisialisasi UI pertama kali (Huruf A)
         
     } catch (error) {
@@ -108,13 +108,16 @@ async function setupCamera() {
 
 // Menangkap gambar dan mengirimnya ke server
 function sendFrame() {
-    // Hanya kirim jika deteksi sedang aktif (belum menekan tombol lanjut)
+    // Hanya kirim jika deteksi sedang aktif
     if (deteksiAktif && videoElement.readyState === videoElement.HAVE_ENOUGH_DATA) {
-        canvasElement.width = videoElement.videoWidth;
-        canvasElement.height = videoElement.videoHeight;
-        context.drawImage(videoElement, 0, 0, canvasElement.width, canvasElement.height);
         
-        const dataURL = canvasElement.toDataURL('image/jpeg', 0.5);
+        // RAHASIA KECEPATAN: Paksa perkecil gambar jadi 320x240 agar ukuran file super kecil
+        canvasElement.width = 320;
+        canvasElement.height = 240;
+        context.drawImage(videoElement, 0, 0, 320, 240);
+        
+        // Kompresi JPEG diubah ke 0.4 (40%)
+        const dataURL = canvasElement.toDataURL('image/jpeg', 0.4);
         socket.emit('image_frame', dataURL);
     }
 }
@@ -143,6 +146,9 @@ socket.on('prediksi_result', function(data) {
             // Hentikan deteksi sementara agar centang tidak hilang-hilang
             deteksiAktif = false;
         }
+    }
+    if (deteksiAktif) {
+        setTimeout(sendFrame, 150); // Jeda bernapas 150ms sebelum menembak lagi
     }
 });
 
