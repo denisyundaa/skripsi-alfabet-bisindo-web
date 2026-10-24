@@ -4,6 +4,9 @@
 const socket = io();
 
 const videoElement = document.createElement('video');
+videoElement.setAttribute('playsinline', 'true'); 
+videoElement.setAttribute('autoplay', 'true');    
+videoElement.setAttribute('muted', 'true');
 const canvasElement = document.createElement('canvas');
 const context = canvasElement.getContext('2d');
 const kameraFeed = document.querySelector('.kamera-feed');
