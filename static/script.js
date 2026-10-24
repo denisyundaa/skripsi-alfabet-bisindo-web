@@ -64,6 +64,7 @@ btnUtamaKecil.addEventListener('click', () => {
         localStorage.setItem('progres_bisindo', indeksSaatIni);
         
         updateUI();
+        setTimeout(sendFrame, 500);
     } else {
         window.location.href = "/selesai";
     }
@@ -74,6 +75,7 @@ btnSekunder.addEventListener('click', () => {
     deteksiAktif = false;
     hurufTerdeteksi.innerText = "-";
     updateUI();
+    setTimeout(sendFrame, 500);
 });
 
 
